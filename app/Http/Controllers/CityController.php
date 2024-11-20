@@ -23,6 +23,6 @@ class CityController extends Controller
     {
         $city = $this->cityRepository->getCityBySlug($slug);
         $boardingHouses = $this->boardingHouseRepository->getBoardingHouseByCitySlug($slug);
-        return view('pages.category.show', compact('boardingHouses', 'city'));
+        return view('pages.city.show', compact('boardingHouses', 'city'));
     }
 }
