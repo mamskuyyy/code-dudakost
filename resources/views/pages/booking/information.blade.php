@@ -72,7 +72,7 @@ class="absolute top-0 w-full h-[230px] rounded-b-[75px] bg-[linear-gradient(180d
                 class="appearance-none outline-none w-full font-semibold placeholder:text-ngekos-grey placeholder:font-normal"
                 placeholder="Tulis nama lengkap anda" value="{{ old('name')}}">
         </label>
-        
+
         @error('name')
             <p class="text-sm text-red-500">{{ $message }}</p>
         @enderror
@@ -95,15 +95,15 @@ class="absolute top-0 w-full h-[230px] rounded-b-[75px] bg-[linear-gradient(180d
     <div class="flex flex-col w-full gap-2 px-5">
         <p class="font-semibold">Nomor Telepon</p>
         <label
-            class="flex items-center w-full rounded-full p-[14px_20px] gap-3 bg-white focus-within:ring-1 focus-within:ring-[#91BF77] transition-all duration-300 @error('phone') border-red-500                
+            class="flex items-center w-full rounded-full p-[14px_20px] gap-3 bg-white focus-within:ring-1 focus-within:ring-[#91BF77] transition-all duration-300 @error('phone_number') border-red-500                
             @enderror">
             <img src="{{ asset('assets/images/icons/call.svg') }}" class="w-5 h-5 flex shrink-0" alt="icon">
-            <input type="tel" name="phone" id=""
+            <input type="tel" name="phone_number" id=""
                 class="appearance-none outline-none w-full font-semibold placeholder:text-ngekos-grey placeholder:font-normal"
-                placeholder="Tulis nomor telepon anda" value="{{ old('phone')}}">
+                placeholder="Tulis nomor telepon anda" value="{{ old('phone_number')}}">
         </label>
 
-        @error('phone')
+        @error('phone_number')
             <p class="text-sm text-red-500">{{ $message }}</p>
         @enderror
     </div>
