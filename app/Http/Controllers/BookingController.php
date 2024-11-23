@@ -36,7 +36,7 @@ class BookingController extends Controller
         return view('pages.booking.information', compact('transaction', 'boardingHouse', 'room'));
     }
 
-    public function SaveInformation(CustomerInformationStoreRequest $request, $slug)
+    public function saveInformation(CustomerInformationStoreRequest $request, $slug)
     {
         $data = $request->validated();
 
@@ -52,6 +52,15 @@ class BookingController extends Controller
         $room = $this->boardingHouseRepository->getBoardingHouseroomById($transaction['room_id']);
 
         return view('pages.booking.checkout', compact('transaction', 'boardingHouse', 'room'));
+    }
+
+    public function payment(Request $request)
+    {
+        $this->transactionRepository->saveTransactionDataToSession($request->all());
+
+        $transaction = $this->transactionRepository->saveTransaction($this->transactionRepository->getTransactionDataFromSession());
+
+        dd($transaction);
     }
 
     public function check()

@@ -32,6 +32,7 @@ class="absolute top-0 w-full h-[230px] rounded-b-[75px] bg-[linear-gradient(180d
 </div>
 </div>
 <form action="{{ route('booking', $boardingHouse->slug)}}" class="relative flex flex-col gap-4 mt-5">
+    <input type="hidden" name="boarding_house_id" value="{{ $boardingHouse->id }}">
 <h2 class="font-bold px-5">Kamar Tersedia</h2>
 <div id="RoomsContainer" class="flex flex-col gap-4 px-5">
     @foreach ($boardingHouse->rooms as $room)

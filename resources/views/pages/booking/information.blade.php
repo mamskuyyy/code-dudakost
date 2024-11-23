@@ -12,48 +12,48 @@ class="absolute top-0 w-full h-[230px] rounded-b-[75px] bg-[linear-gradient(180d
 <p class="font-semibold">Informasi Pelanggan</p>
 <div class="dummy-btn w-12"></div>
 </div>
-<div id="Header" class="relative flex items-center justify-between gap-2 px-5 mt-[18px]">
-<div class="flex flex-col w-full rounded-[30px] border border-[#F1F2F6] p-4 gap-4 bg-white">
-    <div class="flex gap-4">
-        <div class="flex w-[120px] h-[132px] shrink-0 rounded-[30px] bg-[#D9D9D9] overflow-hidden">
-            <img src="{{ asset('storage/' . $boardingHouse->thumbnail) }}" class="w-full h-full object-cover" alt="icon">
-        </div>
-        <div class="flex flex-col gap-3 w-full">
-            <p class="font-semibold text-lg leading-[27px] line-clamp-2 min-h-[54px]">{{ $boardingHouse->name}}</p>
-            <hr class="border-[#F1F2F6]">
-            <div class="flex items-center gap-[6px]">
-                <img src="{{ asset('assets/images/icons/location.svg')}}" class="w-5 h-5 flex shrink-0" alt="icon">
-                <p class="text-sm text-ngekos-grey">{{ $boardingHouse->city->name }}</p>
+    <div id="Header" class="relative flex items-center justify-between gap-2 px-5 mt-[18px]">
+        <div class="flex flex-col w-full rounded-[30px] border border-[#F1F2F6] p-4 gap-4 bg-white">
+            <div class="flex gap-4">
+                <div class="flex w-[120px] h-[132px] shrink-0 rounded-[30px] bg-[#D9D9D9] overflow-hidden">
+                <img src="{{ asset('storage/' . $boardingHouse->thumbnail) }}" class="w-full h-full object-cover" alt="icon">
+                </div>
+                <div class="flex flex-col gap-3 w-full">
+                    <p class="font-semibold text-lg leading-[27px] line-clamp-2 min-h-[54px]">{{ $boardingHouse->name}}</p>
+                        <hr class="border-[#F1F2F6]">
+                        <div class="flex items-center gap-[6px]">
+                            <img src="{{ asset('assets/images/icons/location.svg')}}" class="w-5 h-5 flex shrink-0" alt="icon">
+                            <p class="text-sm text-ngekos-grey">{{ $boardingHouse->city->name }}</p>
+                        </div>
+                    <div class="flex items-center gap-[6px]">
+                        <img src="{{ asset('assets/images/icons/house1.svg')}}" class="w-5 h-5 flex shrink-0" alt="icon">
+                        <p class="text-sm text-ngekos-grey">In {{ $boardingHouse->category->name }}</p>
+                    </div>
+                </div>
             </div>
-            <div class="flex items-center gap-[6px]">
-                <img src="{{ asset('assets/images/icons/house1.svg')}}" class="w-5 h-5 flex shrink-0" alt="icon">
-                <p class="text-sm text-ngekos-grey">In {{ $boardingHouse->category->name }}</p>
-            </div>
-        </div>
-    </div>
-    <hr class="border-[#F1F2F6]">
-    <div class="flex gap-4">
-        <div class="flex w-[120px] h-[156px] shrink-0 rounded-[30px] bg-[#D9D9D9] overflow-hidden">
-            <img src="{{ asset('storage/' . $room->images->first()->image) }}" class="w-full h-full object-cover" alt="icon">
-        </div>
-        <div class="flex flex-col gap-3 w-full">
-            <p class="font-semibold text-lg leading-[27px]">{{ $room->name}}</p>
-            <hr class="border-[#F1F2F6]">
-            <div class="flex items-center gap-[6px]">
-                <img src="{{ asset('assets/images/icons/profile-2user.svg')}}" class="w-5 h-5 flex shrink-0" alt="icon">
-                <p class="text-sm text-ngekos-grey">{{ $room->capacity}} orang</p>
-            </div>
-            <div class="flex items-center gap-[6px]">
-                <img src="{{ asset('assets/images/icons/3dcube.svg')}}" class="w-5 h-5 flex shrink-0" alt="icon">
-                <p class="text-sm text-ngekos-grey">{{ $room->square_feet}} M^2</p>
-            </div>
-            <hr class="border-[#F1F2F6]">
-            <p class="font-semibold text-lg text-ngekos-orange">Rp {{ number_format($boardingHouse->price, 0, ',', '.') }}<span
+                <hr class="border-[#F1F2F6]">
+            <div class="flex gap-4">
+                <div class="flex w-[120px] h-[156px] shrink-0 rounded-[30px] bg-[#D9D9D9] overflow-hidden">
+                    <img src="{{ asset('storage/' . $room->images->first()->image) }}" class="w-full h-full object-cover" alt="icon">
+                </div>
+                <div class="flex flex-col gap-3 w-full">
+                    <p class="font-semibold text-lg leading-[27px]">{{ $room->name}}</p>
+                    <hr class="border-[#F1F2F6]">
+                    <div class="flex items-center gap-[6px]">
+                    <img src="{{ asset('assets/images/icons/profile-2user.svg')}}" class="w-5 h-5 flex shrink-0" alt="icon">
+                    <p class="text-sm text-ngekos-grey">{{ $room->capacity}} orang</p>
+                </div>
+                <div class="flex items-center gap-[6px]">
+                    <img src="{{ asset('assets/images/icons/3dcube.svg')}}" class="w-5 h-5 flex shrink-0" alt="icon">
+                    <p class="text-sm text-ngekos-grey">{{ $room->square_feet}} M^2</p>
+                </div>
+                    <hr class="border-[#F1F2F6]">
+                    <p class="font-semibold text-lg text-ngekos-orange">Rp {{ number_format($boardingHouse->price, 0, ',', '.') }}<span
                     class="text-sm text-ngekos-grey font-normal">/bulan</span></p>
+                </div>
+            </div>
         </div>
     </div>
-</div>
-</div>
 <form action="{{ route('booking.information.save', $boardingHouse->slug)}}" 
     class="relative flex flex-col gap-6 mt-5 pt-5 bg-[#F5F6F8]" method="POST">
     @csrf
