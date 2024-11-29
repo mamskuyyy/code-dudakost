@@ -6,13 +6,9 @@
     </div>
     <div id="TopNav" class="relative flex items-center justify-between px-5 mt-[60px]">
         <div class="flex flex-col gap-1">
-            <p>Good day,</p>
-            <h1 class="font-bold text-xl leading-[30px]">Explore Cozy Home</h1>
+            <p>Semoga hari mu baik</p>
+            <h1 class="font-bold text-xl leading-[30px]">Jelajahi kost</h1>
         </div>
-        <a href="#"
-            class="w-12 h-12 flex items-center justify-center shrink-0 rounded-full overflow-hidden bg-white">
-            <img src="assets/images/icons/notification.svg" class="w-[28px] h-[28px]" alt="icon">
-        </a>
     </div>
     <div id="Categories" class="swiper w-full overflow-x-hidden mt-[30px]">
         <div class="swiper-wrapper">
@@ -38,10 +34,10 @@
     </div>
     <section id="Popular" class="flex flex-col gap-4">
         <div class="flex items-center justify-between px-5">
-            <h2 class="font-bold">Popular Kos</h2>
+            <h2 class="font-bold">Kos yang populer</h2>
             <a href="#">
                 <div class="flex items-center gap-2">
-                    <span>See all</span>
+                    <span>Lainya</span>
                     <img src="assets/images/icons/arrow-right.svg" class="w-6 h-6 flex shrink-0" alt="icon">
                 </div>
             </a>
@@ -90,10 +86,10 @@
     </section>
     <section id="Cities" class="flex flex-col p-5 gap-4 bg-[#F5F6F8] mt-[30px]">
         <div class="flex items-center justify-between">
-            <h2 class="font-bold">Browse Cities</h2>
+            <h2 class="font-bold">Cari berdasarkan kota</h2>
             <a href="#">
                 <div class="flex items-center gap-2">
-                    <span>See all</span>
+                    <span>Lainya</span>
                     <img src="assets/images/icons/arrow-right.svg" class="w-6 h-6 flex shrink-0" alt="icon">
                 </div>
             </a>
@@ -119,10 +115,10 @@
     </section>
     <section id="Best" class="flex flex-col gap-4 px-5 mt-[30px]">
         <div class="flex items-center justify-between">
-            <h2 class="font-bold">All Great Koskos</h2>
+            <h2 class="font-bold">Kos Terbaik</h2>
             <a href="#">
                 <div class="flex items-center gap-2">
-                    <span>See all</span>
+                    <span>Lainya</span>
                     <img src="assets/images/icons/arrow-right.svg" class="w-6 h-6 flex shrink-0" alt="icon">
                 </div>
             </a>

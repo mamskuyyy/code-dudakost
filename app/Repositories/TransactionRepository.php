@@ -20,6 +20,7 @@ class TransactionRepository implements TransactionRepositoryInterface
         foreach ($data as $key => $value) {
             $transaction[$key] = $value;
         }
+
         session()->put('transaction', $transaction);
     }
 
@@ -36,6 +37,16 @@ class TransactionRepository implements TransactionRepositoryInterface
         return $transaction;
     }
 
+    public function getTransactionByCode($code)
+    {
+        return Transaction::where('code', $code)->first();
+    }
+
+    public function getTransactionByCodeEmailPhone($code, $email, $phone)
+    {
+        return Transaction::where('code', $code)->where('email', $email)->where('phone_number', $phone)->first();
+    }
+
     private function prepareTransactionData($data, $room)
     {
         $data['code'] = $this->generateTransactionCode();
@@ -44,6 +55,7 @@ class TransactionRepository implements TransactionRepositoryInterface
 
         $total = $this->calculateTotalAmount($room->price_per_month, $data['duration']);
         $data['total_amount'] = $this->calculatePaymentAmount($total, $data['payment_method']);
+        return $data;
     }
 
     private function generateTransactionCode()

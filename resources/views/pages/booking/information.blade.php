@@ -48,7 +48,7 @@ class="absolute top-0 w-full h-[230px] rounded-b-[75px] bg-[linear-gradient(180d
                     <p class="text-sm text-ngekos-grey">{{ $room->square_feet}} M^2</p>
                 </div>
                     <hr class="border-[#F1F2F6]">
-                    <p class="font-semibold text-lg text-ngekos-orange">Rp {{ number_format($boardingHouse->price, 0, ',', '.') }}<span
+                    <p class="font-semibold text-lg text-ngekos-orange">Rp {{ number_format($room->price_per_month, 0, ',', '.') }}<span
                     class="text-sm text-ngekos-grey font-normal">/bulan</span></p>
                 </div>
             </div>
@@ -108,7 +108,7 @@ class="absolute top-0 w-full h-[230px] rounded-b-[75px] bg-[linear-gradient(180d
         @enderror
     </div>
     <div class="flex items-center justify-between px-5">
-        <p class="font-semibold">Durasi sewa</p>
+        <p class="font-semibold">Durasi sewa/bulan</p>
         <div class="relative flex items-center gap-[10px] w-fit">
             <button type="button" id="Minus" class="w-12 h-12 flex-shrink-0">
                 <img src="{{ asset('assets/images/icons/minus.svg')}}" alt="icon">

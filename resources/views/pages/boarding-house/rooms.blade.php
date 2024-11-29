@@ -9,7 +9,7 @@ class="absolute top-0 w-full h-[230px] rounded-b-[75px] bg-[linear-gradient(180d
     class="w-12 h-12 flex items-center justify-center shrink-0 rounded-full overflow-hidden bg-white">
     <img src="{{ asset('assets/images/icons/arrow-left.svg')}}" class="w-[28px] h-[28px]" alt="icon">
 </a>
-<p class="font-semibold">Duda Kost</p>
+<p class="font-semibold">Dudaa Kost</p>
 <div class="dummy-btn w-12"></div>
 </div>
 <div id="Header" class="relative flex items-center justify-between gap-2 px-5 mt-[18px]">

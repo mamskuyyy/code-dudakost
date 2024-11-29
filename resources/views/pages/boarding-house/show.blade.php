@@ -11,7 +11,7 @@ class="relative flex flex-col w-full max-w-[640px] min-h-screen mx-auto bg-white
         class="w-12 h-12 flex items-center justify-center shrink-0 rounded-full overflow-hidden bg-white/10 backdrop-blur-sm">
         <img src="{{ asset('assets/images/icons/arrow-left-transparent.svg')}}" class="w-8 h-8" alt="icon">
     </a>
-    <p class="font-semibold text-white">Details</p>
+    <p class="font-semibold text-white">Detail</p>
     <button
         class="w-12 h-12 flex items-center justify-center shrink-0 rounded-full overflow-hidden bg-white/10 backdrop-blur-sm">
         <img src="{{ asset('assets/images/icons/like.svg')}}" class="w-[26px] h-[26px]" alt="">
@@ -49,11 +49,11 @@ class="relative flex flex-col w-full max-w-[640px] min-h-screen mx-auto bg-white
         </div>
         <div class="flex items-center gap-[6px]">
             <img src="{{ asset('assets/images/icons/3dcube.svg')}}" class="w-[26px] h-[26px] flex shrink-0" alt="icon">
-            <p class="text-ngekos-grey">In {{ $boardingHouse->category->name }}</p>
+            <p class="text-ngekos-grey">{{ $boardingHouse->category->name }}</p>
         </div>
         <div class="flex items-center gap-[6px]">
             <img src="{{ asset('assets/images/icons/profile-2user.svg')}}" class="w-[26px] h-[26px] flex shrink-0" alt="icon">
-            <p class="text-ngekos-grey">4 People</p>
+            <p class="text-ngekos-grey">{{ $boardingHouse->rooms->first()->capacity}} People</p>
         </div>
         <div class="flex items-center gap-[6px]">
             <img src="{{ asset('assets/images/icons/shield-tick.svg')}}" class="w-[26px] h-[26px] flex shrink-0" alt="icon">
@@ -62,7 +62,7 @@ class="relative flex flex-col w-full max-w-[640px] min-h-screen mx-auto bg-white
     </div>
     <hr class="border-[#F1F2F6] mx-5">
     <div id="About" class="flex flex-col gap-[6px] px-5">
-        <h2 class="font-bold">About</h2>
+        <h2 class="font-bold">Deskripsi</h2>
         <p class="leading-[30px]">{!! $boardingHouse->description !!}</p>
     </div>
     <div id="Tabs" class="swiper-tab w-full overflow-x-hidden">
@@ -75,22 +75,7 @@ class="relative flex flex-col w-full max-w-[640px] min-h-screen mx-auto bg-white
             <div class="swiper-slide !w-fit">
                 <button
                     class="tab-link rounded-full p-[8px_14px] border border-[#F1F2F6] text-sm font-semibold hover:bg-ngekos-black hover:text-white transition-all duration-300"
-                    data-target-tab="#Testimonials-Tab">Testimonials</button>
-            </div>
-            <div class="swiper-slide !w-fit">
-                <button
-                    class="tab-link rounded-full p-[8px_14px] border border-[#F1F2F6] text-sm font-semibold hover:bg-ngekos-black hover:text-white transition-all duration-300"
-                    data-target-tab="#Rules-Tab">Rules</button>
-            </div>
-            <div class="swiper-slide !w-fit">
-                <button
-                    class="tab-link rounded-full p-[8px_14px] border border-[#F1F2F6] text-sm font-semibold hover:bg-ngekos-black hover:text-white transition-all duration-300"
-                    data-target-tab="#Contact-Tab">Contact</button>
-            </div>
-            <div class="swiper-slide !w-fit">
-                <button
-                    class="tab-link rounded-full p-[8px_14px] border border-[#F1F2F6] text-sm font-semibold hover:bg-ngekos-black hover:text-white transition-all duration-300"
-                    data-target-tab="#Rewards-Tab">Rewards</button>
+                    data-target-tab="#Testimonials-Tab">Testimoni</button>
             </div>
         </div>
     </div>
@@ -140,12 +125,6 @@ class="relative flex flex-col w-full max-w-[640px] min-h-screen mx-auto bg-white
                 @endforeach
             </div>
         </div>
-        <div id="Rules-Tab" class="tab-content flex-col gap-5 hidden">Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Porro, vitae.</div>
-        <div id="Contact-Tab" class="tab-content flex-col gap-5 hidden">Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Porro, vitae.</div>
-        <div id="Rewards-Tab" class="tab-content flex-col gap-5 hidden">Lorem ipsum dolor sit amet consectetur
-            adipisicing elit. Porro, vitae.</div>
     </div>
 </main>
 <div id="BottomNav" class="relative flex w-full h-[138px] shrink-0">
@@ -157,8 +136,7 @@ class="relative flex flex-col w-full max-w-[640px] min-h-screen mx-auto bg-white
                 <span class="text-sm font-normal">/bulan</span>
             </p>
             <a href="{{ route('kos.rooms', $boardingHouse->slug)}}"
-                class="flex shrink-0 rounded-full py-[14px] px-5 bg-ngekos-orange font-bold text-white">Book
-                Now</a>
+                class="flex shrink-0 rounded-full py-[14px] px-5 bg-ngekos-orange font-bold text-white">Booking Sekarang</a>
         </div>
     </div>
 </div>

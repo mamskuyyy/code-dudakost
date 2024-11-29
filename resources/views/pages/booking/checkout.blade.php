@@ -9,7 +9,7 @@
         class="w-12 h-12 flex items-center justify-center shrink-0 rounded-full overflow-hidden bg-white">
         <img src="{{asset('assets/images/icons/arrow-left.svg')}}" class="w-[28px] h-[28px]" alt="icon">
     </a>
-        <p class="font-semibold">Checkout Dudakost</p>
+        <p class="font-semibold">Checkout</p>
     <div class="dummy-btn w-12"></div>
     </div>
 <div id="Header" class="relative flex items-center justify-between gap-2 px-5 mt-[18px]">
@@ -48,7 +48,7 @@
                 <p class="text-sm text-ngekos-grey">{{ $room->square_feet}} M^2</p>
             </div>
                 <hr class="border-[#F1F2F6]">
-                <p class="font-semibold text-lg text-ngekos-orange">Rp {{ number_format($boardingHouse->price, 0, ',', '.') }}<span
+                <p class="font-semibold text-lg text-ngekos-orange">Rp {{ number_format($room->price_per_month, 0, ',', '.') }}<span
                 class="text-sm text-ngekos-grey font-normal">/bulan</span></p>
             </div>
         </div>
@@ -100,14 +100,14 @@ class="accordion group flex flex-col rounded-[30px] p-5 bg-[#F5F6F8] mx-5 mt-5 o
     <div class="flex items-center justify-between">
         <div class="flex items-center gap-3">
             <img src="{{ asset('assets/images/icons/clock.svg')}}" class="w-6 h-6 flex shrink-0" alt="icon">
-            <p class="text-ngekos-grey">Duration</p>
+            <p class="text-ngekos-grey">Durasi</p>
         </div>
         <p class="font-semibold">{{ $transaction['duration']}} Bulan</p>
     </div>
     <div class="flex items-center justify-between">
         <div class="flex items-center gap-3">
             <img src="{{ asset('assets/images/icons/calendar.svg')}}" class="w-6 h-6 flex shrink-0" alt="icon">
-            <p class="text-ngekos-grey">Started At</p>
+            <p class="text-ngekos-grey">Mulai</p>
         </div>
         <p class="font-semibold">
             {{ \carbon\carbon::parse($transaction['start_date'])->isoFormat('D MMMM YYYY')}}
@@ -116,7 +116,7 @@ class="accordion group flex flex-col rounded-[30px] p-5 bg-[#F5F6F8] mx-5 mt-5 o
     <div class="flex items-center justify-between">
         <div class="flex items-center gap-3">
             <img src="{{ asset('assets/images/icons/calendar.svg')}}" class="w-6 h-6 flex shrink-0" alt="icon">
-            <p class="text-ngekos-grey">Ended At</p>
+            <p class="text-ngekos-grey">Selesai</p>
         </div>
         <p class="font-semibold">
             {{ \carbon\carbon::parse($transaction['start_date'])->addmonths(intVal($transaction['duration']))->isoFormat('D MMMM YYYY')}}
@@ -132,7 +132,7 @@ class="accordion group flex flex-col rounded-[30px] p-5 bg-[#F5F6F8] mx-5 mt-5 o
         class="flex items-center justify-between border-b border-[#F1F2F6] gap-[18px]">
         <label class="tab-link group relative flex flex-col justify-between gap-4"
             data-target-tab="#DownPayment-Tab">
-            <input type="radio" name="Payment_method" value="down_payment"
+            <input type="radio" name="payment_method" value="down_payment"
                 class="absolute -z-10 top-1/2 left-1/2 opacity-0" checked>
             <div class="flex items-center gap-3 mx-auto">
                 <div class="relative w-6 h-6">
@@ -152,7 +152,7 @@ class="accordion group flex flex-col rounded-[30px] p-5 bg-[#F5F6F8] mx-5 mt-5 o
         <div class="flex h-6 w-[1px] border border-[#F1F2F6] mb-auto"></div>
         <label class="tab-link group relative flex flex-col justify-between gap-4"
             data-target-tab="#FullPayment-Tab">
-            <input type="radio" name="Payment_method" value="full_payment"
+            <input type="radio" name="payment_method" value="full_payment"
                 class="absolute -z-10 top-1/2 left-1/2 opacity-0">
             <div class="flex items-center gap-3 mx-auto">
                 <div class="relative w-6 h-6">
@@ -184,7 +184,7 @@ class="accordion group flex flex-col rounded-[30px] p-5 bg-[#F5F6F8] mx-5 mt-5 o
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-3">
                     <img src="{{ asset('assets/images/icons/card-tick.svg')}}" class="w-6 h-6 flex shrink-0" alt="icon">
-                    <p class="text-ngekos-grey">Payment</p>
+                    <p class="text-ngekos-grey">Pembayaran</p>
                 </div>
                 <p class="font-semibold">Down Payment 30%</p>
             </div>
@@ -211,7 +211,7 @@ class="accordion group flex flex-col rounded-[30px] p-5 bg-[#F5F6F8] mx-5 mt-5 o
                 <div class="flex items-center gap-3">
                     <img src="{{ asset('assets/images/icons/security-user.svg')}}" class="w-6 h-6 flex shrink-0"
                         alt="icon">
-                    <p class="text-ngekos-grey">Insurance</p>
+                    <p class="text-ngekos-grey">Asuransi</p>
                 </div>
                 <p class="font-semibold">
                     Rp {{ number_format($insurance, 0, ',', '.') }}
@@ -221,7 +221,7 @@ class="accordion group flex flex-col rounded-[30px] p-5 bg-[#F5F6F8] mx-5 mt-5 o
                 <div class="flex items-center gap-3">
                     <img src="{{ asset('assets/images/icons/receipt-text.svg')}}" class="w-6 h-6 flex shrink-0"
                         alt="icon">
-                    <p class="text-ngekos-grey">Grand total (30%)</p>
+                    <p class="text-ngekos-grey">Total yang harus di bayar (30%)</p>
                 </div>
                 <p id="downPaymentPrice" class="font-semibold">
                     Rp {{ number_format($downPayment, 0, ',', '.') }}
@@ -236,7 +236,7 @@ class="accordion group flex flex-col rounded-[30px] p-5 bg-[#F5F6F8] mx-5 mt-5 o
             <div class="flex items-center justify-between">
                 <div class="flex items-center gap-3">
                     <img src="{{ asset('assets/images/icons/card-tick.svg')}}" class="w-6 h-6 flex shrink-0" alt="icon">
-                    <p class="text-ngekos-grey">Payment</p>
+                    <p class="text-ngekos-grey">Pembayaran</p>
                 </div>
                 <p class="font-semibold">Full Payment 100%</p>
             </div>

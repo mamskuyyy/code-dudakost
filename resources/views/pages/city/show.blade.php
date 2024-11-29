@@ -9,7 +9,7 @@ class="absolute top-0 w-full h-[570px] rounded-b-[75px] bg-[linear-gradient(180d
     class="w-12 h-12 flex items-center justify-center shrink-0 rounded-full overflow-hidden bg-white">
     <img src="{{ asset('assets/images/icons/arrow-left.svg')}}" class="w-[28px] h-[28px]" alt="icon">
 </a>
-<p class="font-semibold">Cari Koskos</p>
+<p class="font-semibold">Cari Di Kota {{ $city->name}}</p>
 <div class="dummy-btn w-12"></div>
 </div>
 <div id="Header" class="relative flex items-center justify-between gap-2 px-5 mt-[18px]">
@@ -24,7 +24,7 @@ class="absolute top-0 w-full h-[570px] rounded-b-[75px] bg-[linear-gradient(180d
 </div>
 <section id="Result" class=" relative flex flex-col gap-4 px-5 mt-5 mb-9">
     @foreach ($boardingHouses as $boardingHouse)
-    <a href="details.html" class="card">
+    <a href="{{ route('kos.rooms', $boardingHouse->slug)}}" class="card">
         <div
             class="flex rounded-[30px] border border-[#F1F2F6] p-4 gap-4 bg-white hover:border-[#91BF77] transition-all duration-300">
             <div class="flex w-[120px] h-[183px] shrink-0 rounded-[30px] bg-[#D9D9D9] overflow-hidden">
