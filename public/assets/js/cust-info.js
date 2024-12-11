@@ -5,31 +5,35 @@ const swiperTabs = new Swiper('.swiper', {
     slidesOffsetBefore: 20,
 });
 
-const datesElement = document.querySelector('.select-dates');
-const today = new Date();
-const dates = [];
+const datesElement = document.querySelector('.select-dates'); // Elemen tempat tanggal ditambahkan
+const today = new Date(); // Tanggal hari ini
 
-const lastDayOfMonth = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate();
+// Jumlah bulan yang ingin ditampilkan
+const monthsToDisplay = 3;
 
-for (let i = today.getDate(); i <= lastDayOfMonth; i++) {
-    const date = new Date(today.getFullYear(), today.getMonth(), i);
-    const month = date.toLocaleString('default', {
-        month: 'short'
-    });
+for (let monthOffset = 0; monthOffset < monthsToDisplay; monthOffset++) {
+    // Buat tanggal awal untuk setiap bulan berdasarkan offset
+    const currentMonth = new Date(today.getFullYear(), today.getMonth() + monthOffset, 1);
+    const lastDayOfMonth = new Date(currentMonth.getFullYear(), currentMonth.getMonth() + 1, 0).getDate();
 
-    const realDate = new Date(date.getTime() + 1000 * 60 * 60 * 24).toISOString().split('T')[0];
+    // Perulangan untuk setiap hari dalam bulan tersebut
+    for (let i = monthOffset === 0 ? today.getDate() : 1; i <= lastDayOfMonth; i++) {
+        const date = new Date(currentMonth.getFullYear(), currentMonth.getMonth(), i);
+        const month = date.toLocaleString('default', { month: 'short' }); // Format bulan singkat
+        const realDate = date.toISOString().split('T')[0]; // Format YYYY-MM-DD
 
-    dates.push(realDate);
-
-    datesElement.innerHTML += `
-        <div class="swiper-slide !w-fit py-[2px]">
-            <label class="relative flex flex-col items-center justify-center w-fit rounded-3xl p-[14px_20px] gap-3 bg-white border border-white hover:border-[#91BF77] has-[:checked]:ring-2 has-[:checked]:ring-[#91BF77] transition-all duration-300">
-                <img src="/assets/images/icons/calendar.svg" class="w-8 h-8" alt="icon">
-                <p class="font-semibold text-nowrap">${date.getDate()} ${month}</p>
-                <input type="radio" name="start_date" class="absolute top-1/2 left-1/2 -z-10 opacity-0" value="${realDate}" required>
-            </label>
-        </div>`;
+        // Tambahkan elemen tanggal ke dalam datesElement
+        datesElement.innerHTML += `
+            <div class="swiper-slide !w-fit py-[2px]">
+                <label class="relative flex flex-col items-center justify-center w-fit rounded-3xl p-[14px_20px] gap-3 bg-white border border-white hover:border-[#91BF77] has-[:checked]:ring-2 has-[:checked]:ring-[#91BF77] transition-all duration-300">
+                    <img src="/assets/images/icons/calendar.svg" class="w-8 h-8" alt="icon">
+                    <p class="font-semibold text-nowrap">${date.getDate()} ${month}</p>
+                    <input type="radio" name="start_date" class="absolute top-1/2 left-1/2 -z-10 opacity-0" value="${realDate}" required>
+                </label>
+            </div>`;
+    }
 }
+
 
 const minusButton = document.getElementById('Minus');
 const plusButton = document.getElementById('Plus');
