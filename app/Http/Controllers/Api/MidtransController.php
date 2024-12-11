@@ -27,7 +27,9 @@ class MidtransController extends Controller
             return response()->json(['message' => 'Transaction is not found'], 404);
         }
 
-
+        $sid    = "AC4665fc625502fe94e0e078a6b831d535";
+        $token  = "cab1e0e72b27f501404cf09e6da4ba2a";
+        $twilio = new Client($sid, $token);
 
         $message =
             "Halo, " . $transaction->name . "!" . PHP_EOL . PHP_EOL .
